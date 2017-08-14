@@ -9,7 +9,8 @@ SOURCES += main.cpp \
     ctscan.cpp \
     patientfactory.cpp \
     util.cpp \
-    writer.cpp
+    writer.cpp \
+    fetchingpatientdata.cpp
 
 HEADERS += \
     patient.h \
@@ -17,4 +18,5 @@ HEADERS += \
     ctscan.h \
     patientfactory.h \
     util.h \
-    writer.h
+    writer.h \
+    fetchingpatientdata.h

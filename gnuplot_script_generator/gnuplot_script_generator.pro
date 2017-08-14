@@ -6,7 +6,9 @@ CONFIG -= qt
 LIBS += -lboost_filesystem -lboost_system
 
 SOURCES += main.cpp \
-    gnuplotscriptfactory.cpp
+    gnuplotscriptfactory.cpp \
+    plotselector.cpp
 
 HEADERS += \
-    gnuplotscriptfactory.h
+    gnuplotscriptfactory.h \
+    plotselector.h

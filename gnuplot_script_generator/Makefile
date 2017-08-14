@@ -51,9 +51,11 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = main.cpp \
-		gnuplotscriptfactory.cpp 
+		gnuplotscriptfactory.cpp \
+		plotselector.cpp 
 OBJECTS       = main.o \
-		gnuplotscriptfactory.o
+		gnuplotscriptfactory.o \
+		plotselector.o
 DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/common/unix.conf \
 		/usr/lib/qt/mkspecs/common/linux.conf \
@@ -225,8 +227,10 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/features/exceptions.prf \
 		/usr/lib/qt/mkspecs/features/yacc.prf \
 		/usr/lib/qt/mkspecs/features/lex.prf \
-		gnuplot_script_generator.pro gnuplotscriptfactory.h main.cpp \
-		gnuplotscriptfactory.cpp
+		gnuplot_script_generator.pro gnuplotscriptfactory.h \
+		plotselector.h main.cpp \
+		gnuplotscriptfactory.cpp \
+		plotselector.cpp
 QMAKE_TARGET  = gnuplot_script_generator
 DESTDIR       = 
 TARGET        = gnuplot_script_generator
@@ -626,11 +630,16 @@ compiler_clean:
 
 ####### Compile
 
-main.o: main.cpp gnuplotscriptfactory.h
+main.o: main.cpp gnuplotscriptfactory.h \
+		plotselector.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
-gnuplotscriptfactory.o: gnuplotscriptfactory.cpp gnuplotscriptfactory.h
+gnuplotscriptfactory.o: gnuplotscriptfactory.cpp gnuplotscriptfactory.h \
+		plotselector.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gnuplotscriptfactory.o gnuplotscriptfactory.cpp
+
+plotselector.o: plotselector.cpp plotselector.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o plotselector.o plotselector.cpp
 
 ####### Install
 

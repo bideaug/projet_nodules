@@ -4,35 +4,36 @@
 
 using namespace std;
 
-//Constructeur de la class CTScan
 CTScan::CTScan()
 {
 
 }
 
-//Methode de CTScan qui renvoi la différences entre la composante solide et la composante verre dépoli
 float CTScan::DCVD()
 {
     return DCT - DSOL;
 }
 
-//Methode to_string qui renvoi un string avec les attributs de la class CTScan
 string CTScan::to_string()
 {
     string str;
+    str += "Date du CTscan : ";
     str += std::to_string(date.day()) + "/" + std::to_string(date.month()) + "/" + std::to_string(date.year());
-    str += " ";
-    str += sdate;
-    str += " ";
+    str += " | DCT:";
+    //str += sdate;
+    //str += " ";
     //str += Util::reduce_to_precision(DCT, 4);
     str += Util::Convertfloat2string(DCT);
-    str += " ";
+    str += " | Dsol:";
     //str += Util::reduce_to_precision(DSOL, 4);
     str += Util::Convertfloat2string(DSOL);
-    str += " ";
+    str += " | DCVD:";
     //str += Util::reduce_to_precision(DCVD(), 4);
     str += Util::Convertfloat2string(DCVD());
-    str += " ";
+    str += " | DensityCT:";
+    str += Util::Convertfloat2string(ct_density);
+    str += "| DensitySOL:";
+    str += Util::Convertfloat2string(sol_density);
     return str;
 }
 
@@ -44,5 +45,9 @@ string CTScan::Result_of_scan()
     str += Util::Convertfloat2string(DSOL);
     str += " ";
     str += Util::Convertfloat2string(DCVD());
+    str += " ";
+    str += Util::Convertfloat2string(ct_density);
+    str += " ";
+    str += Util::Convertfloat2string(sol_density);
     return str;
 }

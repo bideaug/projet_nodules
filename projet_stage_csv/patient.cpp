@@ -31,6 +31,8 @@ CTScanAppointment CTScanAppointment::from_ctscan(CTScan ctscan)
     CTScanAppointment b;
     b.DCT = ctscan.DCT;
     b.DSOL = ctscan.DSOL;
+    b.ct_density = ctscan.ct_density;
+    b.sol_density = ctscan.sol_density;
     b.date = ctscan.date;
     b.sdate = ctscan.sdate;
     return b;
@@ -58,14 +60,25 @@ std::vector<CTScanAppointment> Patient::get_appointments()
 string Patient::to_string()
 {
     string str;
+    str += "ID : ";
     str += std::to_string(id);
-    str += " | ";
+    str += " | age : ";
     str += std::to_string(age);
-    str += " | ";
+    str += " | sexe :";
     str += genre;
-    str += " | ";
+    str += "\n Mutation : \n";
+    str += "EGFR mutation : ";
+    str += EGFRmutation;
+    str += "\n";
+    str += "KRAS mutation : ";
+    str += KRASmutation;
+    str += "\n";
+    str += "ALK mutation : ";
+    str += ALKmutation;
+    str += "\n CTscans : \n";
     for(CTScan scan : scans)
     {
+        str += "\n";
         str += "[";
         str += scan.to_string();
         str += "] ";
